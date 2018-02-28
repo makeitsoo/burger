@@ -1,3 +1,5 @@
+
+// technically this is a simple query builder - not true ORM
 var mysql = require("mysql");
 var connection = require("./connection.js");
 
