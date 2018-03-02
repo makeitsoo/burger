@@ -37,7 +37,7 @@ router.post("/burgers", function(req, res) {
 // PUT request route for UPDATE (for devouring burger)
 router.put("/burgers/update/:id", function(req, res) {
 	var objColVals = { devoured : req.body.devoured };
-	var condition = "burger_id = " + req.params.id;;
+	var condition = "id = " + req.params.id;;
 	burger.updateOne(objColVals, condition, function() {
 		res.redirect("/");
 	});
@@ -45,7 +45,7 @@ router.put("/burgers/update/:id", function(req, res) {
 
 // DELETE request route (for deleting burger)
 router.delete('/burgers/update/:id', function(req, res) {
-	var condition = 'burger_id = ' + req.params.id;
+	var condition = 'id = ' + req.params.id;
 	burger.deleteOne(condition, function() {
 		res.redirect('/');
 	});

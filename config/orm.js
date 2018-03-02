@@ -1,4 +1,3 @@
-
 // technically this is a query builder - not true ORM
 
 // requires connection to MySQL
@@ -9,7 +8,6 @@ var connection = require("./connection.js");
 	// In order to write the query, we need 3 question marks.
 	// The above helper function loops through and creates an array of question marks - ["?", "?", "?"] - and turns it into a string.
 	// ["?", "?", "?"].toString() => "?,?,?";
-
 function printQuestionMarks(num) {
 	var arr = [];
 
@@ -20,14 +18,13 @@ function printQuestionMarks(num) {
 }
 
 // Helper function to convert object key/value pairs to SQL
-function objToSql(ob) {
+function objToSQL(ob) {
 	var arr = [];
 
 	for (var key in ob) {
 		if (ob.hasOwnProperty(key))
 			arr.push(key + '=' + ob[key]);
 	}
-
 	return arr.toString();
 }
 
@@ -59,7 +56,6 @@ var orm = {
     	qs += "VALUES (";
     	qs += printQuestionMarks(vals.length);
     	qs += ") ";
-
     	console.log(qs);
 
 		connection.query(qs, vals, function(err, result) {
@@ -68,8 +64,6 @@ var orm = {
 			}
 
 			cb(result);
-			// send back ID, Name, and devoured of inserted record
-			// res.json({ id: result.id })
 				console.log("---NEW RECORD INSERTED---")
 				console.log("BurgerID: " + result.id + " || Burger: " + result.burger_name + " || Devoured? " + result.devoured);
 			console.log("---------------------");
@@ -93,16 +87,14 @@ var orm = {
 			}
 			cb(result);
 
-			result.status(200).end();
 			console.log("---------------------");
-			// connection.end();
 		});
 	},
 	deleteOne: function (table, condition, cb) {
 		var qs = 'DELETE FROM ' + table;
-
 		qs += ' WHERE ';
 		qs += condition;
+    	console.log(qs);
 
 		connection.query(qs, function (err, result) {
 			if (err) throw err;
