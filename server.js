@@ -1,8 +1,7 @@
 var express = require("express");
 var method = require("method-override");
 var bodyParser = require("body-parser");
-var path = require("path");
-
+// set the port 
 var port = process.env.PORT || 3030;
 
 var app = express();
@@ -10,6 +9,9 @@ var app = express();
 app.use(express.static("public"));
 // use parser to parse URL
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// override with POST having ?_method=DELETE
+app.use(method("_method"));
 
 // handlebars setup 
 var exphbs = require("express-handlebars");
@@ -20,6 +22,7 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/burgers_controller.js");
 app.use("/", routes);
 
+// express server listener
 app.listen(port, function() {
   console.log("server listening on localhost:", port);
 });

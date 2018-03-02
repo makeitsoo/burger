@@ -106,6 +106,17 @@ var orm = {
 			console.log("---------------------");
 			// connection.end();
 		});
+	},
+	deleteOne: function (table, condition, cb) {
+		var qs = 'DELETE FROM ' + table;
+
+		qs += ' WHERE ';
+		qs += condition;
+
+		connection.query(qs, function (err, result) {
+			if (err) throw err;
+			cb(result);
+		});
 	}
 }
 
