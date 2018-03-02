@@ -1,14 +1,16 @@
+<!--handlebars main file contains HTML structure -->
+
 <!DOCTYPE html>
 <html lang="en-US">
-
+	<!--handlebars partial from head.handlebars -->
 	{{> head}}
 
 	<body>
-
+		<!--include handlebars partial from nav.handlebars -->
 		{{> nav}}
-
+		<!--handlebars body from index.handlebars file -->
 	    {{{ body }}}
-
+		<!--handlebars partial from footer.handlebars -->
 		{{> footer}}
 		
 	    <!-- CDN jQuery JS -->
