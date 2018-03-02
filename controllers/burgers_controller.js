@@ -1,21 +1,14 @@
 var express = require("express");
+// creates Express router for app
+var router = express.Router();
 var burger = require("../models/burger.js");
-var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+
 
 // this will query ALL burgers in db
 // burger.selectAll();
 
 
-// Create the `router` for the app, and export the `router` at the end of your file.
-var app = express();
-var port = 3030;
-
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// Here are all the routes needed for app
 
 // for INSERT
 app.post("/new-burger", function(req, res) {
@@ -41,3 +34,6 @@ app.get("/burgers", function(req, res) {
 app.listen(port, function() {
   console.log("listening on port", port);
 });
+
+// export router for server.js to use
+module.exports = router;
