@@ -43,17 +43,13 @@ router.put("/burgers/update/:id", function(req, res) {
 	});
 });
 
-
-// DELETE request route 
+// DELETE request route (for deleting burger)
 router.delete('/burgers/update/:id', function(req, res) {
 	var condition = 'burger_id = ' + req.params.id;
 	burger.deleteOne(condition, function() {
 		res.redirect('/');
 	});
 });
-
-
-
 
 
 // export router for server.js to use routes
