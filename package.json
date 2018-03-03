@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/makeitsoo/burger/issues"
   },
-  "homepage": "https://github.com/makeitsoo/burger",
+  "homepage": "https://github.com/makeitsoo/views/layouts/main.handlebars",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
