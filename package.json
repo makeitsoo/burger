@@ -2,7 +2,7 @@
   "name": "burger",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/makeitsoo/burger/issues"
   },
-  "homepage": "https://github.com/makeitsoo/views/layouts/main.handlebars",
+  "homepage": "https://github.com/makeitsoo/burger#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
